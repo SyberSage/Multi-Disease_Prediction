@@ -1,54 +1,231 @@
-# Multi-Disease Prediction System
+# 🩺 Multi-Disease Prediction System
 
-Streamlit app estimating liver disease, chronic kidney disease, and
-Parkinson's likelihood from three independently trained models.
+A machine learning based web application that predicts the likelihood of **Liver Disease, Kidney Disease, and Parkinson's Disease** using trained machine learning models.
 
-## Structure
+The application is built with **Python and Streamlit** and provides a simple interface where users can enter medical parameters and receive a prediction.
 
+## 🚀 Live Demo
+
+**Streamlit App:** https://multi-disease-prediction-sybersage.streamlit.app/
+
+## 📌 Project Overview
+
+The **Multi-Disease Prediction System** combines three independent machine learning prediction models into a single web application.
+
+The system includes:
+
+* 🫀 Liver Disease Prediction
+* 🫘 Kidney Disease Prediction
+* 🧠 Parkinson's Disease Prediction
+
+Each disease has its own trained machine learning model and preprocessing pipeline.
+
+## ✨ Features
+
+* User-friendly Streamlit interface
+* Three different disease prediction modules
+* Individual preprocessing for each dataset
+* Machine learning based predictions
+* Clean and responsive dashboard
+* Disease-specific input forms
+* Prediction results displayed directly in the application
+* Custom medical icons and UI styling
+* Deployed using Streamlit Community Cloud
+
+## 🧠 Machine Learning Models
+
+For each disease, multiple machine learning algorithms were evaluated, including:
+
+* Logistic Regression
+* Random Forest
+* XGBoost
+
+The best-performing model was selected and saved as a `.joblib` model artifact for deployment.
+
+### Models Included
+
+| Disease             | Model File                |
+| ------------------- | ------------------------- |
+| Liver Disease       | `liver_model.joblib`      |
+| Kidney Disease      | `kidney_model.joblib`     |
+| Parkinson's Disease | `parkinsons_model.joblib` |
+
+## 🔄 Machine Learning Workflow
+
+The general workflow followed in the project is:
+
+```text
+Dataset
+   ↓
+Data Cleaning
+   ↓
+Exploratory Data Analysis (EDA)
+   ↓
+Data Preprocessing
+   ↓
+Feature Engineering
+   ↓
+Train/Test Split
+   ↓
+Model Training
+   ↓
+Model Evaluation
+   ↓
+Best Model Selection
+   ↓
+Model Serialization (.joblib)
+   ↓
+Streamlit Deployment
 ```
-app.py                       # everything: preprocessing, model loading, styling, all 4 pages
-requirements.txt
-.streamlit/config.toml        # base theme
-models/
-  liver_model.joblib          # {model, scaler, feature_columns, skewed_cols}
-  kidney_model.joblib          # {model, scaler, feature_columns, skewed_cols, cont_cols,
-                               #  binary_cols, binary_value_maps, impute_medians,
-                               #  impute_modes, sod_pot_outlier_bounds}
-  parkinsons_model.joblib      # {model, scaler, feature_columns}
+
+## 🛠️ Technologies Used
+
+### Programming
+
+* Python
+
+### Data Science
+
+* Pandas
+* NumPy
+* Scikit-learn
+
+### Machine Learning
+
+* Logistic Regression
+* Random Forest
+* XGBoost
+
+### Model Deployment
+
+* Streamlit
+* Joblib
+
+### Development Tools
+
+* Jupyter Notebook
+* VS Code
+* GitHub
+
+## 📂 Project Structure
+
+```text
+Multi-Disease-Prediction-System/
+│
+├── app.py
+│
+├── liver_model.joblib
+├── kidney_model.joblib
+├── parkinsons_model.joblib
+│
+├── icons/
+│   ├── medical.png
+│   ├── liver.png
+│   ├── kidney.png
+│   └── parkinsons.png
+│
+├── .streamlit/
+│   └── config.toml
+│
+├── requirements.txt
+│
+└── README.md
 ```
 
-## Why preprocessing is inside app.py, not a Pipeline
+## ⚙️ Installation
 
-Each `.joblib` is a dict, not a self-contained `sklearn.Pipeline` — the
-notebooks apply feature engineering (gender encoding, the A/G-ratio formula,
-categorical mapping, outlier nulling, log1p, median/mode imputation) as
-manual pandas cells. The `preprocess_liver` / `preprocess_kidney` /
-`preprocess_parkinsons` functions near the top of `app.py` replicate those
-exact steps, driven by the metadata already stored in each artifact
-(`feature_columns`, `skewed_cols`, `impute_medians`, etc.) rather than
-hardcoded column lists.
+### 1. Clone the repository
 
-If you retrain a model with a different manual preprocessing sequence,
-update the matching `preprocess_*` function to match — the rest of the app
-doesn't need to change.
+```bash
+git clone https://github.com/your-username/your-repository-name.git
+```
 
-## Run locally
+### 2. Navigate to the project directory
+
+```bash
+cd your-repository-name
+```
+
+### 3. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+### 4. Activate the virtual environment
+
+**Windows:**
+
+```bash
+.venv\Scripts\activate
+```
+
+**Mac/Linux:**
+
+```bash
+source .venv/bin/activate
+```
+
+### 5. Install dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+
+### 6. Run the Streamlit application
+
+```bash
 streamlit run app.py
 ```
 
-## Deploy to Streamlit Community Cloud
+The application will open in your browser.
 
-Push this folder's contents to a GitHub repo root (so `app.py` sits at the
-top level), then point a new Streamlit Community Cloud app at the repo and
-`app.py`. Models are small enough to commit directly — no Git LFS needed.
+## 📦 Requirements
 
-## Notes
+Example `requirements.txt`:
 
-- Not a diagnostic tool — the app states this under every result.
-- Kidney sodium/potassium inputs are bounded in the form to the same range
-  the model was trained to treat as valid (`sod >= 50`, `pot <= 15`);
-  outside that range those values were nulled and median-imputed during
-  training.
+```text
+streamlit
+pandas
+numpy
+scikit-learn
+xgboost
+joblib
+```
+
+If your application uses additional packages, add them to `requirements.txt`.
+
+## 🌐 Deployment
+
+The application can be deployed using **Streamlit Community Cloud**.
+
+Basic deployment steps:
+
+1. Push the project to GitHub.
+2. Open Streamlit Community Cloud.
+3. Connect your GitHub account.
+4. Select this repository.
+5. Select `app.py` as the main file.
+6. Deploy the application.
+
+## ⚠️ Disclaimer
+
+This project is intended **for educational and demonstration purposes only**.
+
+The predictions generated by this application should **not be considered medical advice, diagnosis, or treatment recommendations**. Users should consult qualified healthcare professionals for medical evaluation and diagnosis.
+
+## 👨‍💻 Author
+
+Yoga Prabhu
+
+Data Science | Machine Learning | Python
+
+Portfolio: https://sybersage.github.io/Portfolio/
+
+GitHub: www.linkedin.com/in/yoga-prabhu
+
+LinkedIn: www.linkedin.com/in/yoga-prabhu
+
+---
+
+⭐ If you found this project useful, consider giving the repository a star!
