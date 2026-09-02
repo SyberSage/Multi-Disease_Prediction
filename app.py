@@ -177,7 +177,7 @@ BASE_CSS = """
 }
 html, body, [class*="css"]{ font-family: 'Inter', sans-serif; color: var(--ink); }
 .stApp{ background: var(--bg); }
-h1, h2, h3, .brand{ font-family: 'Space Grotesk', sans-serif !important; letter-spacing: -0.01em; }
+h1, h2, h3, .brand{ color: var(--ink); font-family: 'Space Grotesk', sans-serif !important; letter-spacing: -0.01em; }
 #MainMenu, footer, header[data-testid="stHeader"]{ background: transparent; }
 .block-container{ padding-top: 2rem; padding-bottom: 3rem; max-width: 1080px; }
 
