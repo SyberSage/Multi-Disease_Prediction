@@ -260,6 +260,55 @@ a.disease-card:hover .disease-card-icon{ transform: scale(1.06); }
 .result-foot{ margin-top: 1rem; font-size: 0.78rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 0.7rem; }
 .disclaimer{ font-size: 0.78rem; color: var(--ink-soft); background: color-mix(in srgb, var(--accent) 6%, white);
   border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.9rem; margin-top: 1.4rem; }
+
+
+html, body, [class*="st-"] {
+    color: #111827;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #111827 !important;
+}
+
+/* Paragraphs and normal text */
+p, span, label, div {
+    color: #111827;
+}
+
+/* Your custom headings */
+.hero-title {
+    color: #111827 !important;
+}
+
+.hero-eyebrow {
+    color: #374151 !important;
+}
+
+.hero-sub {
+    color: #4b5563 !important;
+}
+
+.page-sub {
+    color: #4b5563 !important;
+}
+
+/* Disease card text */
+.disease-card h3 {
+    color: #111827 !important;
+}
+
+.disease-card p {
+    color: #4b5563 !important;
+}
+
+.disease-card .tag {
+    color: #374151 !important;
+}
+
+.disease-card .go {
+    color: #111827 !important;
+}
 """
 
 
