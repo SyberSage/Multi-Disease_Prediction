@@ -220,11 +220,11 @@ Yoga Prabhu
 
 Data Science | Machine Learning | Python
 
-Portfolio: https://sybersage.github.io/Portfolio/
+Portfolio: [Portfolio](https://sybersage.github.io/Portfolio/)
 
-GitHub: www.linkedin.com/in/yoga-prabhu
+GitHub: [GitHub](https://github.com/your-username)
 
-LinkedIn: www.linkedin.com/in/yoga-prabhu
+LinkedIn: [LinkedIn](https://www.linkedin.com/in/yoga-prabhu)
 
 ---
 
